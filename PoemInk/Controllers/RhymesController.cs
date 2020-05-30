@@ -30,6 +30,18 @@ namespace PoemInk.Controllers
 
             downloader.Settings = new RhymerSettings(id, "");
             await downloader.Start();
+
+            return rhymes.ToArray();
+        }
+
+        [HttpGet("{type}/{id}")]
+        public async Task<IEnumerable<string>> Get(string type, string id)
+        {
+            downloader = new RhymesDownloader<RhymesByCategory>(new RhymerParser());
+            downloader.OnNewData += Downloader_OnNewData;
+
+            downloader.Settings = new RhymerSettings(id, type);
+            await downloader.Start();
                 
             return rhymes.ToArray();
         }

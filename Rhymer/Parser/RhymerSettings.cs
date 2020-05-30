@@ -16,7 +16,7 @@ namespace Rhymer.Parser
 
         public string BaseUrl { get; set; } = "https://rhymer.com/";
 
-        public string RhymeType { get; set; } = "";
+        public string RhymeType { get; set; }
 
         public string Word { get; set; }
     }
