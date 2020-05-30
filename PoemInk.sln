@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhymer", "Rhymer\Rhymer.csproj", "{B945F3AC-6B73-44D8-9DA3-F69CA9438555}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoemInk", "PoemInk\PoemInk.csproj", "{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B945F3AC-6B73-44D8-9DA3-F69CA9438555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B945F3AC-6B73-44D8-9DA3-F69CA9438555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B945F3AC-6B73-44D8-9DA3-F69CA9438555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B945F3AC-6B73-44D8-9DA3-F69CA9438555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEBD4BD6-299C-48F2-8D24-13F9B53219E2}
+	EndGlobalSection
+EndGlobal

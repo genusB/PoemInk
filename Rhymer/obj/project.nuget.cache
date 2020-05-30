@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "TMG/rfKL4XNrl8mCewaM625s6HWpx9O0Xk9vCjVGNiBEHNn8lmMWRC/NsN6oA4+b/7nXF+w5n9ZnLV2iiYbYoQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\paste\\source\\repos\\PoemInk project\\Rhymer\\Rhymer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\paste\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\paste\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
+    "C:\\Users\\paste\\.nuget\\packages\\system.text.encoding.codepages\\4.5.0\\system.text.encoding.codepages.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
