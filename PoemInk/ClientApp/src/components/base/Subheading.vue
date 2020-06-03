@@ -17,5 +17,5 @@
         default: 'h1',
       },
     },
-  }
+  };
 </script>

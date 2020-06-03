@@ -17,7 +17,7 @@
         default: 'h1',
       },
     },
-  }
+  };
 </script>
 
 <style lang="sass">

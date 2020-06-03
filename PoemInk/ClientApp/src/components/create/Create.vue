@@ -25,5 +25,5 @@
       InstrumentPanel: () => import('@/components/create/InstrumentPanel.vue'),
       TextArea: () => import('@/components/create/TextArea.vue'),
     },
-  }
+  };
 </script>

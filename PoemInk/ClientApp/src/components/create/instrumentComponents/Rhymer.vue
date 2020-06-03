@@ -24,13 +24,12 @@
             no-gutters
           >
             <v-col>
-              <v-btn
-                color="primary"
+              <base-btn
                 @click="fetchRhymes()"
                 v-on="on"
               >
                 Find
-              </v-btn>
+              </base-btn>
             </v-col>
             <v-col>
               <v-select
@@ -48,23 +47,24 @@
         <v-card>
           <v-card-title>Rhymes for "{{ text }}"</v-card-title>
           <v-divider />
-          <div
-            v-for="(rhyme, i) in rhymes"
-            :key="i"
-            class="mx-auto"
-          >
-            {{ rhyme }}
-          </div>
+          <v-card-text>
+            <div
+              v-for="(rhyme, i) in rhymes"
+              :key="i"
+              class="mx-auto"
+            >
+              {{ rhyme }}
+            </div>
+          </v-card-text>
           <v-divider />
           <v-card-actions>
             <v-spacer />
-            <v-btn
-              color="grey"
+            <base-btn
               text
               @click="dialog = false"
             >
               Close
-            </v-btn>
+            </base-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -73,36 +73,35 @@
 </template>
 
 <script lang="ts">
-  import axios from 'axios'
+  import axios from 'axios';
+  import { Component, Vue } from 'vue-property-decorator';
 
-  export default {
-    name: 'Rhymer',
-    data: () => ({
-      text: '',
-      dialog: false,
-      chosenType: '',
-      rhymes: [],
-      rhymeTypes: [{ text: 'End Rhymes', param: '' },
-                   { text: 'Last-Syllable Rhymes', param: '/last-syllable-rhymes' },
-                   { text: 'Double Rhymes', param: '/double-rhymes' },
-                   { text: 'Triple Rhymes', param: '/triple-rhymes' },
-                   { text: 'Beginning Rhymes', param: '/beginning-rhymes' },
-                   { text: 'First-Syllable Rhymes', param: '/first-syllable-rhymes' }],
-    }),
-    methods: {
-      updateType (param) {
-        this.chosenType = param
-      },
-      async fetchRhymes () {
-        try {
-          const url = 'api/Rhymes' + this.chosenType + '/' + this.text
-          const response = await axios.get(url)
-          this.rhymes = response.data
-        } catch (e) {
-          this.showError = true
-        }
-      },
-    },
+  @Component({})
+    export default class Rhymer extends Vue {
+    private text: string = '';
+    private dialog: boolean = false;
+    private chosenType: string = '';
+    private rhymes: string[] = [];
+    private rhymeTypes = [{ text: 'End Rhymes', param: '' },
+                  { text: 'Last-Syllable Rhymes', param: '/last-syllable-rhymes' },
+                  { text: 'Double Rhymes', param: '/double-rhymes' },
+                  { text: 'Triple Rhymes', param: '/triple-rhymes' },
+                  { text: 'Beginning Rhymes', param: '/beginning-rhymes' },
+                  { text: 'First-Syllable Rhymes', param: '/first-syllable-rhymes' }];
+    private updateType(param: string) {
+      this.chosenType = param;
+    }
+    private async fetchRhymes() {
+      try {
+        const url = 'api/Rhymes' + this.chosenType + '/' + this.text;
+        debugger;
+        const response = await axios.get(url);
+        this.rhymes = response.data;
+      } catch (e) {
+        this.rhymes = ['Not found'];
+      }
+    }
   }
+  
 
 </script>

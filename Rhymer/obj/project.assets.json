@@ -181,11 +181,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paste\\source\\repos\\PoemInk project\\Rhymer\\Rhymer.csproj",
+      "projectUniqueName": "C:\\Users\\paste\\source\\repos\\PoemInk\\Rhymer\\Rhymer.csproj",
       "projectName": "Rhymer",
-      "projectPath": "C:\\Users\\paste\\source\\repos\\PoemInk project\\Rhymer\\Rhymer.csproj",
+      "projectPath": "C:\\Users\\paste\\source\\repos\\PoemInk\\Rhymer\\Rhymer.csproj",
       "packagesPath": "C:\\Users\\paste\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\paste\\source\\repos\\PoemInk project\\Rhymer\\obj\\",
+      "outputPath": "C:\\Users\\paste\\source\\repos\\PoemInk\\Rhymer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

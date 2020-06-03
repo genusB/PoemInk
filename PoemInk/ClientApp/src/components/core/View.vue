@@ -23,5 +23,5 @@
       Services: () => import('@/components/Services'),
       Welcome: () => import('@/components/Welcome'),
     },
-  }
+  };
 </script>

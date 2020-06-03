@@ -66,9 +66,9 @@
     }),
 
     methods: {
-      sendEmail () {
-        window.open('mailto:pasteyourtext@gmail.com?subject=' + this.subject + '&body=' + this.message)
+      sendEmail() {
+        window.open('mailto:pasteyourtext@gmail.com?subject=' + this.subject + '&body=' + this.message);
       },
     },
-  }
+  };
 </script>

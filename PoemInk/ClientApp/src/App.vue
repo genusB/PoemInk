@@ -8,13 +8,14 @@
   </v-app>
 </template>
 
-<script>
-  export default {
-    name: 'App',
+<script lang="ts">
+import CoreFooter from '@/components/core/Footer.vue';
+import CoreNavigation from '@/components/core/Navigation.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-    components: {
-      CoreFooter: () => import('@/components/core/Footer.vue'),
-      CoreNavigation: () => import('@/components/core/Navigation.vue'),
-    },
-  }
+@Component({
+  components: { CoreFooter, CoreNavigation },
+})
+  export default class App extends Vue { }
+
 </script>

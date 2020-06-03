@@ -14,5 +14,5 @@
     components: {
       SocialMedia: () => import('@/components/SocialMedia'),
     },
-  }
+  };
 </script>

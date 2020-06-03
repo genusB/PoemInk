@@ -47,11 +47,11 @@
       ],
     }),
     methods: {
-      onScroll () {
-        const offset = window.pageYOffset
-        this.isScrolling = offset > 50
-        this.showLogo = offset > 200
+      onScroll() {
+        const offset = window.pageYOffset;
+        this.isScrolling = offset > 50;
+        this.showLogo = offset > 200;
       },
     },
-  }
+  };
 </script>

@@ -86,7 +86,7 @@
         { name: 'project4', title: 'Suggest', link: '#get-in-touch' },
       ],
     }),
-  }
+  };
 </script>
 
 <style>

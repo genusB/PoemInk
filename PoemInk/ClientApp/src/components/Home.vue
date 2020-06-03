@@ -11,5 +11,5 @@
     components: {
       CoreView: () => import('@/components/core/View'),
     },
-  }
+  };
 </script>
