@@ -103,7 +103,9 @@
         try {
           this.translation = new Translation(this.from, this.to, this.originalText);
           const url = 'api/Translation';
-          const response = await axios.get(url);
+          debugger;
+          const response = await axios.get(url, {params: {from: this.from, TO: this.to, text: this.originalText}});
+          debugger;
           this.translatedText = response.data;
         } catch (e) {
           this.translatedText = 'Not found';

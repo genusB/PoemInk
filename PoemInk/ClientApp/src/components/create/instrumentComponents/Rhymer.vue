@@ -94,7 +94,6 @@
     private async fetchRhymes() {
       try {
         const url = 'api/Rhymes' + this.chosenType + '/' + this.text;
-        debugger;
         const response = await axios.get(url);
         this.rhymes = response.data;
       } catch (e) {
