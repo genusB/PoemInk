@@ -6,6 +6,8 @@
     >
       <rhymer />
       <v-divider class="pa-3" />
+      <synonyms />
+      <v-divider class="pa-3" />
       <translator />
     </v-sheet>
   </div>
@@ -16,11 +18,8 @@
     name: 'InstrumentPanel',
     components: {
       Rhymer: () => import('@/components/create/instrumentComponents/Rhymer.vue'),
+      Synonyms: () => import('@/components/create/instrumentComponents/Synonyms.vue'),
       Translator: () => import('@/components/create/instrumentComponents/Translator.vue'),
     },
-    data: () => ({
-      drawer: false,
-      clipped: false,
-    }),
   };
 </script>
