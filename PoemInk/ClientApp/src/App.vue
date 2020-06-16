@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <core-navigation />
+    <v-divider class="pa-6" />
     <v-content>
       <router-view />
     </v-content>
-    <core-footer />
+    <!-- <core-footer /> -->
   </v-app>
 </template>
 

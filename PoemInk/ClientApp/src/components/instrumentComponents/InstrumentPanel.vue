@@ -17,9 +17,9 @@
   export default {
     name: 'InstrumentPanel',
     components: {
-      Rhymer: () => import('@/components/create/instrumentComponents/Rhymer.vue'),
-      Synonyms: () => import('@/components/create/instrumentComponents/Synonyms.vue'),
-      Translator: () => import('@/components/create/instrumentComponents/Translator.vue'),
+      Rhymer: () => import('./Rhymer.vue'),
+      Synonyms: () => import('./Synonyms.vue'),
+      Translator: () => import('./Translator.vue'),
     },
   };
 </script>

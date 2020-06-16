@@ -60,7 +60,6 @@
     private async fetchSynonyms() {
       try {
         const url = 'api/Synonyms';
-        debugger;
         const response = await axios.get(url, {params: {text: this.text}});
         this.synonyms = response.data;
       } catch (e) {

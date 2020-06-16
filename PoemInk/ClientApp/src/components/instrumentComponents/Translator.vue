@@ -64,7 +64,6 @@
 
 <script lang="ts">
   import axios from 'axios';
-  import { Translation } from '../../../models/Translation';
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component({})
@@ -74,7 +73,6 @@
       private originalText: string = '';
       private translatedText: string = '';
       private dialog: boolean = false;
-      private translation: Translation = new Translation('', '', '');
       private languagesFrom: string[] = [
         'Auto', 'Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian',
         'Bengali', 'Bosnian', 'Bulgarian', 'Catalan', 'Cebuano', 'Chichewa', 'ChineseSimplified', 'ChineseTraditional',
@@ -101,11 +99,8 @@
         'Turkish', 'Ukrainian', 'Urdu', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yiddish', 'Yoruba', 'Zulu'];
         private async fetchTranslation() {
         try {
-          this.translation = new Translation(this.from, this.to, this.originalText);
           const url = 'api/Translation';
-          debugger;
           const response = await axios.get(url, {params: {from: this.from, TO: this.to, text: this.originalText}});
-          debugger;
           this.translatedText = response.data;
         } catch (e) {
           this.translatedText = 'Not found';

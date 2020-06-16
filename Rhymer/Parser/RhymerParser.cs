@@ -15,13 +15,13 @@ namespace Rhymer.Parser
             var content = new RhymesByCategory();
 
             List<string> allRhymes = document.QuerySelectorAll("a")
-                                                          .Where(item => item.ClassName != null && item.ClassName.Equals("btn"))
+                                                          .Where(item => item.ClassName != null && item.ClassName.Contains("btn"))
                                                           .Select(item => item.TextContent)
                                                           .ToList<string>();
 
 
             List<string> rhymesTitles = document.QuerySelectorAll("h5")
-                                                          .Where(item => item.ClassName != null && item.ClassName.Equals("text-success pt-2"))
+                                                          .Where(item => item.ClassName != null && item.ClassName.Contains("text-success pt-2"))
                                                           .Select(item => item.TextContent)
                                                           .ToList<string>();
 

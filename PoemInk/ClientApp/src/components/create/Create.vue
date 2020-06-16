@@ -22,7 +22,7 @@
   export default {
     name: 'Create',
     components: {
-      InstrumentPanel: () => import('@/components/create/InstrumentPanel.vue'),
+      InstrumentPanel: () => import('@/components/instrumentComponents/InstrumentPanel.vue'),
       TextArea: () => import('@/components/create/TextArea.vue'),
     },
   };
