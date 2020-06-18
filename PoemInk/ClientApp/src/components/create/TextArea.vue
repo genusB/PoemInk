@@ -12,9 +12,25 @@
         rounded
         solo
       />
-      <base-btn @click="fetchSpelling">
-      Check Spelling
-      </base-btn>
+      <v-row>
+        <v-col>
+           <base-btn :disabled="!isAuthenticated" @click="fetchSpelling">
+            Check Spelling
+          </base-btn>
+        </v-col>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-col>
+          <base-btn :disabled="!isAuthenticated" @click="fetchSpelling">
+            Post to "Inspire"
+          </base-btn>
+        </v-col>
+        <v-col>
+          <base-btn @click="fetchSpelling">
+            Download as pdf 
+          </base-btn>
+        </v-col>
+      </v-row>
       <div class="mt-12 text-center" />
     </v-sheet>
   </div>
@@ -22,9 +38,15 @@
 
 <script lang="ts">
   import axios from 'axios';
+  import { mapGetters } from 'vuex';
   import { Component, Vue } from 'vue-property-decorator';
+  
 
-  @Component({})
+  @Component({
+    computed: mapGetters({
+      isAuthenticated: 'auth/isAuthenticated',
+    })
+  })
     export default class TextArea extends Vue {
     private text: string = '';
     private async fetchSpelling() {
