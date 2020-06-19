@@ -42,7 +42,8 @@ namespace PoemInk.Controllers
                 customer.Identity.FacebookId,
                 customer.PenName,
                 customer.Locale,
-                customer.Gender
+                customer.Gender,
+                customer.Poems.Count
             });
         }
     }

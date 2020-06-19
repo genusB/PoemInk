@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PoemInk.Data;
 
 namespace PoemInk.Migrations
 {
     [DbContext(typeof(PoemInkDbContext))]
-    partial class PoemInkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200619193222_AddIdToPoemModel")]
+    partial class AddIdToPoemModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

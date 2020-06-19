@@ -24,7 +24,8 @@
               <p v-if="homeData.firstName"><strong>Name:</strong> {{name}}</p> 
               <p v-if="homeData.penName"><strong>Pen name:</strong> {{homeData.penName}}</p>   
               <p v-if="homeData.locale"><strong>Locale:</strong> {{homeData.locale}}</p>       
-              <p v-if="homeData.gender"><strong>Gender:</strong> {{homeData.gender}}</p> 
+              <p v-if="homeData.gender"><strong>Gender:</strong> {{homeData.poems.count}}</p> 
+              <p v-if="homeData.gender"><strong>Gender:</strong> {{homeData.gender}}</p>
               <p v-if="homeData.facebookId"><strong>Facebook Id:</strong> {{homeData.facebookId}}</p> 
               <div v-if="homeData.pictureUrl"><img :src="homeData.pictureUrl" /></div>                 
             </div>
