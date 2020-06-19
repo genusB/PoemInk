@@ -24,16 +24,13 @@ const actions = {
 
 const mutations = {
     userRequest: (userState: any) => {
-        debugger;
         userState.status = 'attempting request for user profile data';
     },
     userSuccess: (userState: any, userResp: any) => {
-      debugger;
       userState.status = 'success';
       Vue.set(userState, 'profile', userResp);
     },
     userError: (userState: any) => {
-      debugger;
       userState.status = 'error';
     },
 };

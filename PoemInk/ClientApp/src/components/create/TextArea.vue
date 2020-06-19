@@ -5,7 +5,7 @@
       class="pa-12"
     >
       <v-textarea
-        v-model="text"
+        v-model="createdPoem"
         auto-grow
         clearable
         placeholder="Your next masterpiece"
@@ -21,12 +21,12 @@
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
         <v-col>
-          <base-btn :disabled="!isAuthenticated" @click="fetchSpelling">
+          <base-btn :disabled="!isAuthenticated">
             Post to "Inspire"
           </base-btn>
         </v-col>
         <v-col>
-          <base-btn @click="fetchSpelling">
+          <base-btn>
             Download as pdf 
           </base-btn>
         </v-col>
@@ -40,16 +40,23 @@
   import axios from 'axios';
   import { mapGetters } from 'vuex';
   import { Component, Vue } from 'vue-property-decorator';
-  
+  import store from '../../store/store';
 
   @Component({
     computed: mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
-    })
+    }),
   })
-    export default class TextArea extends Vue {
-    private text: string = '';
-    private async fetchSpelling() {
+
+export default class TextArea extends Vue {
+  get createdPoem() {
+    return this.$store.getters['createdPoem/createdPoem'];
+  }
+  set createdPoem(value) {
+    this.$store.commit('createdPoem/updateCreatedPoem', value);
+  }
+  private text: string = '';
+  private async fetchSpelling() {
       try {
         const url = 'api/Spelling';
         const response = await axios.get(url, {params: {misspellingsText: this.text}});
@@ -58,7 +65,5 @@
         alert('Not found');
       }
     }
-  }
-  
-
+}
 </script>

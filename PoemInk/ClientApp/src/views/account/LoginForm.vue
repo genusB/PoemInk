@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import Spinner from '@/components/Spinner.vue'; 
+import Spinner from '@/components/Spinner.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { Credentials } from '../../models/credentials.interface';
 // this.$route.query.page

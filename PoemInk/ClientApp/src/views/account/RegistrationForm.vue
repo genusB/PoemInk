@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts">
-import Spinner from '@/components/Spinner.vue'; 
+import Spinner from '@/components/Spinner.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { UserRegistration } from '../../models/user.registration.interface';
 import { accountService } from '../../services/account.service';
@@ -84,7 +84,8 @@ private handleSubmit() {
   this.isBusy = true;
   accountService.register(this.user).finally(() => this.isBusy = false)
     .subscribe((result: any) => {
-      this.$router.push({name: 'loginForm', query: { new: 'true', firstName: this.user.firstName, email: this.user.email }});
+      this.$router.push({name: 'loginForm',
+                        query: { new: 'true', firstName: this.user.firstName, email: this.user.email }});
     },
     (errors: any) =>  this.errors = errors);
 }

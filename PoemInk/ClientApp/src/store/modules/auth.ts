@@ -61,7 +61,6 @@ const mutations = {
         authState.status = 'attempting authentication request';
     },
     authSuccess: (authState: any, authToken: string) => {
-        debugger;
         authState.status = 'authentication succeeded';
         authState.token = authToken;
     },

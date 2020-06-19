@@ -13,5 +13,6 @@ namespace PoemInk.Data
     }
 
     public DbSet<Poet> Poets { get; set; }
+    public DbSet<Poem> Poems { get; set; }
   }
 }

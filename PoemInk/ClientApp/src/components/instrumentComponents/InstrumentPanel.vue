@@ -36,10 +36,10 @@ import Translator from './Translator.vue';
  components: {
     Rhymer,
     Synonyms,
-    Translator
+    Translator,
   },
 })
 
 export default class InstrumentPanel extends Vue {
-};
+}
 </script>
