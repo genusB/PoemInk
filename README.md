@@ -9,6 +9,7 @@ creation poems by your own from scratch, generating poems, inspiration from othe
 - .NET Core 3.1 sdk
 - Vue CLI => npm install -g @vue/cli https://github.com/vuejs/vue-cli
 - Vue 2.6.11
+- IronPython 2.7
 
 ## Setup
 To build and run the project:
@@ -20,5 +21,6 @@ To build and run the project:
 ### Build and run the ASP.NET Core Web application:
 1. Restore nuget packages with `PoemInk\PoemInk>dotnet restore` in the `PoemInk\PoemInk` directory.
 2. Create the database with `PoemInk\PoemInk>dotnet ef database update` in the `PoemInk\PoemInk` directory.
-3. Make sure that ports 5000 and 8080 are free.
-4. Run the project with `PoemInk\PoemInk>dotnet run` in the `PoemInk\PoemInk` directory.
+3. You have to install IronPython locally to be able to run a python script from .net. Also, check its installation directory, it should be `C:\Program Files\IronPython 2.7\`.
+4. Make sure that ports 5000 and 8080 are free.
+5. Run the project with `PoemInk\PoemInk>dotnet run` in the `PoemInk\PoemInk` directory.
