@@ -52,6 +52,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Generate\Generate.csproj" />
     <ProjectReference Include="..\Rhymer\Rhymer.csproj" />
   </ItemGroup>
 

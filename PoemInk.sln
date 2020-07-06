@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhymer", "Rhymer\Rhymer.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoemInk", "PoemInk\PoemInk.csproj", "{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generate", "Generate\Generate.csproj", "{11FB5780-39C2-4CC8-B294-4DAAEBB69CE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80372B1C-1C4F-4548-BF0D-79D05F4FC8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FB5780-39C2-4CC8-B294-4DAAEBB69CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FB5780-39C2-4CC8-B294-4DAAEBB69CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FB5780-39C2-4CC8-B294-4DAAEBB69CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FB5780-39C2-4CC8-B294-4DAAEBB69CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

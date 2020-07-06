@@ -43,7 +43,7 @@ namespace PoemInk.Controllers
                 customer.PenName,
                 customer.Locale,
                 customer.Gender,
-                customer.Poems.Count
+                //customer.Poems.Count
             });
         }
     }

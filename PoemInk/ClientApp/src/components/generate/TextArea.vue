@@ -14,7 +14,7 @@
       />
       <v-row>
         <v-col>
-           <base-btn :disabled="!isAuthenticated">
+           <base-btn :disabled="!isAuthenticated" @click="generate">
             Generate
           </base-btn>
         </v-col>
@@ -34,6 +34,13 @@
           <base-btn>
             Download as pdf 
           </base-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col lg="4">
+          <v-container>
+            <v-text-field v-model="lines" type="number" label="Amount of lines in generated poem"></v-text-field>
+          </v-container>
         </v-col>
       </v-row>
       <div class="mt-12 text-center" />
@@ -62,10 +69,26 @@ export default class TextArea extends Vue {
     this.$store.commit('generatedPoem/updateGeneratedPoem', value);
   }
   private text: string = '';
+  private lines: number = 10;
+  private increment() {
+      this.lines += 1;
+  }
+  private decrement() {
+      this.lines -= 1;
+  }
   private async fetchSpelling() {
     try {
       const url = 'api/Spelling';
       const response = await axios.get(url, {params: {misspellingsText: this.text}});
+      this.generatedPoem = response.data;
+    } catch (e) {
+      alert('Not found');
+    }
+  }
+  private async generate() {
+    try {
+      const url = 'api/Generate';
+      const response = await axios.get(url, {params: {number: this.lines}});
       this.generatedPoem = response.data;
     } catch (e) {
       alert('Not found');

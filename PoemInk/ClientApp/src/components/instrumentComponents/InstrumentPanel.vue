@@ -6,7 +6,7 @@
     >
      <v-overlay
         :absolute="true"
-        value="isAuthenticated"
+        :value="!isAuthenticated"
         opacity="0.3"
       >
         <v-btn class="ma-2" color="transparent" to="/login">Login to unlock

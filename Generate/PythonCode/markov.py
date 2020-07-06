@@ -1,0 +1,102 @@
+import sys
+from collections import defaultdict
+import random
+
+class MarkovChain:
+    def __init__(self, lookback=2):
+        self.trie = defaultdict(lambda : defaultdict(int))
+        self.lookback = lookback
+        self.lines = []
+
+    def train(self, lines):
+        self.lines += lines
+        for line in lines:
+            tokens = line.split()
+            if len(tokens) > self.lookback:
+                for i in range(len(tokens) + 1):
+                    a = ' '.join(tokens[max(0, i-self.lookback) : i])
+                    b = ' '.join(tokens[i : i+1])
+                    self.trie[a][b] += 1
+        self._build_probabilities()
+
+    def _build_probabilities(self):
+        for word, following in self.trie.items():
+            total = float(sum(following.values()))
+            for key in following:
+                following[key] /= total
+
+    def _sample(self, items):
+        next_word = None
+        t = 0.0
+        for k, v in items:
+            t += v
+            if t and random.random() < v/t:
+                next_word = k
+        return next_word
+
+    def generate(self, n):
+        sentences = []
+        while len(sentences) < n:
+            sentence = []
+            next_word = self._sample(self.trie[''].items())
+            while next_word != '':
+                sentence.append(next_word)
+                next_word = self._sample(self.trie[' '.join(sentence[-self.lookback:])].items())
+            sentence = ' '.join(sentence)
+            flag = True
+            for line in self.lines: 
+                if sentence in line:
+                    flag = False
+                    break
+            if flag:
+                sentences.append(sentence)
+        return sentences
+
+def load_data(filename):
+    lines = []
+    with open(filename) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                lines.append(line.strip())
+    return lines
+
+
+def main():
+    n = sys.argv[1:]
+    msg = "LOL! You have to supply the total number of lines to generate."\
+            + "Or else humanity will go extinct right now..."
+    if not n:
+        print(msg.strip())
+    else:
+        n = int(n[0])
+        data = load_data("../Generate/PythonCode/data/poem")
+        mc = MarkovChain(lookback=2)
+        mc.train(data)
+
+        lines = mc.generate(n)
+        for line in lines:
+            print(line)
+
+def execute(n):
+    msg = "You have to supply amount of lines"
+    if not n:
+        return msg.strip()
+    else:
+        n = int(n)
+        data = load_data("../Generate/PythonCode/data/poem")
+        mc = MarkovChain(lookback=2)
+        mc.train(data)
+
+        lines = mc.generate(n)
+        poem = ""
+        for line in lines:
+            poem += (line + "\n")
+
+        return poem
+
+
+if __name__ == "__main__":
+    main()
+
+
