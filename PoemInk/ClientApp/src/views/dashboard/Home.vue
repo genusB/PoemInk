@@ -1,39 +1,58 @@
 <template>
 <div> 
-<section class="hero is-info">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">
-        Hello, {{profile.firstName}}  {{profile.lastName}}
-      </h1>
-      <h2 class="subtitle">
-        Welcome back!
-      </h2>
-    </div>
-  </div>
-</section> 
- <section class="container">
-    <div class="columns">
-      <div class="column is-4 is-offset-4">
-        <div class="card">          
-          <div class="card-content">
-            <div class="content">
-              <h4>You've reached a protected area!</h4>
-              <Spinner v-bind:show="isBusy" />
-              <p v-if="homeData.message">{{homeData.message}}</p>              
-              <p v-if="homeData.firstName"><strong>Name:</strong> {{name}}</p> 
-              <p v-if="homeData.penName"><strong>Pen name:</strong> {{homeData.penName}}</p>   
-              <p v-if="homeData.locale"><strong>Locale:</strong> {{homeData.locale}}</p>       
-              <p v-if="homeData.gender"><strong>Gender:</strong> {{homeData.poems.count}}</p> 
-              <p v-if="homeData.gender"><strong>Gender:</strong> {{homeData.gender}}</p>
-              <p v-if="homeData.facebookId"><strong>Facebook Id:</strong> {{homeData.facebookId}}</p> 
-              <div v-if="homeData.pictureUrl"><img :src="homeData.pictureUrl" /></div>                 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
- </section>
+  <v-expansion-panels :popout="true" >
+    <v-expansion-panel>
+      <v-expansion-panel-header>Your profile information</v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-card>
+          <v-card-title>Hello, {{profile.firstName}}  {{profile.lastName}}</v-card-title>
+          <Spinner v-bind:show="isBusy" /> 
+          <v-card-subtitle><strong>Your account info:</strong></v-card-subtitle>            
+          <v-card-text v-if="homeData.firstName"><strong>Name:</strong> {{name}}</v-card-text> 
+          <v-card-text v-if="homeData.penName"><strong>Pen name:</strong> {{homeData.penName}}</v-card-text>   
+          <v-card-text v-if="homeData.locale"><strong>Locale:</strong> {{homeData.locale}}</v-card-text>       
+          <v-card-text v-if="homeData.gender"><strong>Gender:</strong> {{homeData.poems.count}}</v-card-text> 
+          <v-card-text v-if="homeData.gender"><strong>Gender:</strong> {{homeData.gender}}</v-card-text>
+          <v-card-text v-if="homeData.facebookId"><strong>Facebook Id:</strong> {{homeData.facebookId}}</v-card-text> 
+          <div v-if="homeData.pictureUrl"><img :src="homeData.pictureUrl" /></div>  
+        </v-card>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+    <v-expansion-panel>
+      <v-expansion-panel-header>Color settings</v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-card :flat="true">
+          <v-row>
+            <v-col>
+              <p>Primary color: </p>
+              <v-color-picker v-model="$vuetify.theme.themes.light.primary"></v-color-picker>
+            </v-col>
+            <v-col>
+              <p>Secondary color: </p>
+              <v-color-picker v-model="$vuetify.theme.themes.light.secondary"></v-color-picker>
+            </v-col>
+          
+            <v-col>
+              <p>Accent color: </p>
+              <v-color-picker v-model="$vuetify.theme.themes.light.accent"></v-color-picker>
+            </v-col>
+            <v-col>
+              <p>Info color: </p>
+              <v-color-picker v-model="$vuetify.theme.themes.light.info"></v-color-picker>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+    <v-expansion-panel>
+      <v-expansion-panel-header>Name settings</v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-card>
+          
+        </v-card>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
  </div>
 </template>
 
@@ -55,6 +74,8 @@ export default class DashboardHome extends Vue {
 
   private isBusy: boolean = false;
   private homeData = {} as any;
+  private type: any = 'hex';
+  private hex: any = '#FF00FF';
 
   get name() {
       return this.homeData.firstName + ' ' + this.homeData.lastName;
@@ -69,3 +90,9 @@ export default class DashboardHome extends Vue {
   }
 }
 </script>
+
+<style scoped>
+  p {
+    font-size: 0.8em;
+  }
+</style>

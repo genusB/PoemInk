@@ -2,9 +2,9 @@
   <v-app>
     <core-navigation />
     <v-divider class="pa-6" />
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <!-- <core-footer /> -->
   </v-app>
 </template>

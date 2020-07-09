@@ -55,12 +55,11 @@ export default class TextArea extends Vue {
   set createdPoem(value) {
     this.$store.commit('createdPoem/updateCreatedPoem', value);
   }
-  private text: string = '';
   private async fetchSpelling() {
       try {
         const url = 'api/Spelling';
-        const response = await axios.get(url, {params: {misspellingsText: this.text}});
-        this.text = response.data;
+        const response = await axios.get(url, {params: {misspellingsText: this.createdPoem}});
+        this.createdPoem = response.data;
       } catch (e) {
         alert('Not found');
       }

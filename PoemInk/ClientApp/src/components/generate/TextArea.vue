@@ -65,21 +65,13 @@ export default class TextArea extends Vue {
     return this.$store.getters['generatedPoem/generatedPoem'];
   }
   set generatedPoem(value) {
-    this.text = value;
     this.$store.commit('generatedPoem/updateGeneratedPoem', value);
   }
-  private text: string = '';
   private lines: number = 10;
-  private increment() {
-      this.lines += 1;
-  }
-  private decrement() {
-      this.lines -= 1;
-  }
   private async fetchSpelling() {
     try {
       const url = 'api/Spelling';
-      const response = await axios.get(url, {params: {misspellingsText: this.text}});
+      const response = await axios.get(url, {params: {misspellingsText: this.generatedPoem}});
       this.generatedPoem = response.data;
     } catch (e) {
       alert('Not found');
