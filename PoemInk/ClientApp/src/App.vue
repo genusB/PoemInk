@@ -5,7 +5,7 @@
     <v-main>
       <router-view />
     </v-main>
-    <!-- <core-footer /> -->
+    <core-footer />
   </v-app>
 </template>
 

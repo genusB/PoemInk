@@ -1,17 +1,11 @@
 <template>
   <section
     id="get-in-touch"
-    class="overflow-hidden"
+    class="primary white--text center pa-10"
   >
-    <v-row
-      class="info white--text"
-      no-gutters
-    >
-      <v-col
-        class="pa-5"
-        cols="12"
-        md="6"
-      >
+    <v-row>
+      <v-col></v-col>
+      <v-col cols="lg-5 xs-14">
         <base-heading class="mb-5">
           Get In Touch
         </base-heading>
@@ -43,16 +37,7 @@
           </base-btn>
         </v-sheet>
       </v-col>
-
-      <v-col
-        class="hidden-sm-and-down"
-        md="6"
-      >
-        <v-img
-          :src="require('@/assets/contact.png')"
-          height="100%"
-        />
-      </v-col>
+      <v-col></v-col>
     </v-row>
   </section>
 </template>
@@ -60,6 +45,7 @@
 <script>
   export default {
     name: 'GetInTouch',
+
     data: () => ({
       subject: '',
       message: '',

@@ -5,15 +5,11 @@
   >
     <v-row no-gutters>
       <v-col
-        class="primary text-center pa-5 white--text"
+        class="secondary text-center pa-5 white--text"
         cols="12"
         md="6"
       >
-        <base-bubble-1
-          style="transform: rotate(180deg) translateX(25%)"
-        />
-
-        <base-heading>
+        <base-heading class="mt-14">
           What do we have here?
         </base-heading>
 
@@ -22,7 +18,7 @@
           You also can navigate directly to them to learn more<br>
         </base-text>
 
-        <v-card color="secondary">
+        <v-card color="primary">
           <v-container class="pa-2">
             <v-row>
               <v-col

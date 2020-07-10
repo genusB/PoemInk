@@ -7,11 +7,13 @@
       class="ma-2"
       color="info"
       :small="!large"
+      
     >
       <v-icon
         dark
         v-text="item.icon"
       />
+      <a :href="item.link"></a>
     </v-btn>
   </div>
 </template>
@@ -28,24 +30,14 @@
     data: () => ({
       items: [
         {
-          name: 'Twitter',
-          icon: 'mdi-twitter',
+          name: 'Vk',
+          icon: 'mdi-vk',
+          link: 'https://vk.com/genusb',
         },
         {
-          name: 'Instagram',
-          icon: 'mdi-instagram',
-        },
-        {
-          name: 'Facebook',
-          icon: 'mdi-facebook',
-        },
-        {
-          name: 'Email',
-          icon: 'mdi-email',
-        },
-        {
-          name: 'Phone',
-          icon: 'mdi-phone',
+          name: 'Github',
+          icon: 'mdi-github',
+          link: 'https://github.com/genusB',
         },
       ],
     }),

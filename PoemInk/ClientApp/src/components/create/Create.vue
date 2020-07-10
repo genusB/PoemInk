@@ -3,13 +3,12 @@
     <v-row>
       <v-col
         cols="12"
-        sm="6"
         md="8"
       >
         <text-area />
       </v-col>
       <v-col
-        cols="6"
+        cols="md-4 sm-12"
         md="4"
       >
         <instrument-panel />
