@@ -13,20 +13,13 @@ namespace PoemInk.Controllers
     [ApiController]
     public class SynonymsController : ControllerBase
     {
-        private readonly ILogger<RhymesController> _logger;
-
-        public SynonymsController(ILogger<RhymesController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
         public async Task<string> Get(string text)
         {
             var translator = new GoogleTranslator();
 
             TranslationResult result = await translator.TranslateAsync(text, Language.Auto, Language.English);
-            string synonyms = "";
+            string synonyms;
             if (result.Synonyms != null)
             {
                 synonyms = result.Synonyms.ToString();

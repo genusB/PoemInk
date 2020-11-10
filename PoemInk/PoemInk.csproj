@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
     <PackageReference Include="FluentValidation.ValidatorAttribute" Version="8.6.1" />
     <PackageReference Include="GoogleTranslateFreeApi" Version="1.1.1" />

@@ -72,7 +72,7 @@ namespace PoemInk.Controllers
 
                 if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
 
-                await _appDbContext.Poets.AddAsync(new Poet { IdentityId = appUser.Id, PenName = userInfo.Name, Locale = userInfo.Locale, Gender = userInfo.Gender });
+                await _appDbContext.Poets.AddAsync(new Poet { IdentityId = appUser.Id, PenName = userInfo.Name});
                 await _appDbContext.SaveChangesAsync();
             }
 

@@ -19,7 +19,7 @@ namespace PoemInk.Controllers
         private readonly ClaimsPrincipal _caller;
         private readonly PoemInkDbContext _appDbContext;
 
-        public ProfileController(UserManager<AppUser> userManager, PoemInkDbContext appDbContext, IHttpContextAccessor httpContextAccessor)
+        public ProfileController(PoemInkDbContext appDbContext, IHttpContextAccessor httpContextAccessor)
         {
             _caller = httpContextAccessor.HttpContext.User;
             _appDbContext = appDbContext;
@@ -39,9 +39,7 @@ namespace PoemInk.Controllers
                 poet.Identity.LastName,
                 poet.Identity.PictureUrl,
                 poet.Identity.FacebookId,
-                poet.PenName,
-                poet.Locale,
-                poet.Gender
+                poet.PenName
             });
         }
     }

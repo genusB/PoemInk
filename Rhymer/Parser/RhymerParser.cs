@@ -20,7 +20,7 @@ namespace Rhymer.Parser
                                                           .ToList<string>();
 
 
-            List<string> rhymesTitles = document.QuerySelectorAll("h5")
+            List<string> rhymesTitles = document.QuerySelectorAll("h2")
                                                           .Where(item => item.ClassName != null && item.ClassName.Contains("text-success pt-2"))
                                                           .Select(item => item.TextContent)
                                                           .ToList<string>();

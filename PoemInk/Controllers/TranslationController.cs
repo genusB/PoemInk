@@ -12,13 +12,6 @@ namespace PoemInk.Controllers
     [ApiController]
     public class TranslationController : ControllerBase
     {
-        private readonly ILogger<RhymesController> _logger;
-
-        public TranslationController(ILogger<RhymesController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
         public async Task<string> Get(string from, string to, string text)
         {

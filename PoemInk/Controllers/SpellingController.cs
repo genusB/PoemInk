@@ -12,13 +12,6 @@ namespace PoemInk.Controllers
     [ApiController]
     public class SpellingController : ControllerBase
     {
-        private readonly ILogger<RhymesController> _logger;
-
-        public SpellingController(ILogger<RhymesController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
         public async Task<string> Get(string misspellingsText)
         {

@@ -25,9 +25,6 @@ namespace PoemInk
 {
     public class Startup
     {
-        private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH"; // todo: get this from somewhere secure
-        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,7 +42,6 @@ namespace PoemInk
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("PoemInk")));
 
-            // In production, the Vue files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
@@ -62,6 +58,9 @@ namespace PoemInk
             // jwt wire up
             // Get options from app settings
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
+            var authSettings = Configuration.GetSection("AuthSettings");
+
+            var _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(authSettings["SecretKey"]));
 
             // Configure JwtIssuerOptions
             services.Configure<JwtIssuerOptions>(options =>
@@ -108,7 +107,6 @@ namespace PoemInk
             // add identity
             var builder = services.AddIdentityCore<AppUser>(o =>
             {
-                // configure identity options
                 o.Password.RequireDigit = false;
                 o.Password.RequireLowercase = false;
                 o.Password.RequireUppercase = false;
@@ -173,8 +171,6 @@ namespace PoemInk
             {
                 spa.Options.SourcePath = "ClientApp";
             });
-
-
         }
     }
 }

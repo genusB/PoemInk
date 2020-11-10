@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using PoemInk.Data;
 using PoemInk.Models.Entities;
-using System;
+using PoemInk.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -27,33 +28,39 @@ namespace PoemInk.Controllers
 
         [HttpPost]
         [Authorize(Policy = "ApiUser")]
-        public async Task<IActionResult> Post([FromBody]Poem poem)
+        public async Task<IActionResult> Post([FromBody] PoemViewModel poem)
         {
+            Poet currentPoet = await CurrentPoet();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _appDbContext.Poems.AddAsync(new Poem { Title = poem.Title, Body = poem.Body, Poet = poem.Poet });
-            await _appDbContext.SaveChangesAsync();
+            await _appDbContext.Poems.AddAsync(new Poem { Title = poem.Title, Body = poem.Body,
+                PostToInspire = poem.PostToInspire, Poet = currentPoet });
+            _appDbContext.SaveChanges();
 
             return new OkObjectResult("Poem created");
         }
 
         [HttpPut]
         [Authorize(Policy = "ApiUser")]
-        public async Task<IActionResult> Update([FromBody]Poem poem)
+        public async Task<IActionResult> Update([FromBody] Poem poem)
         {
+            Poet currentPoet = await CurrentPoet();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (CurrentPoet().Id != poem.Poet.Id)
+            if (currentPoet.Id != poem.Poet.Id)
             {
                 return BadRequest("You can't update this poem");
             }
 
-            await _appDbContext.Poems.AddAsync(new Poem { Title = poem.Title, Body = poem.Body, Poet = poem.Poet });
+            await _appDbContext.Poems.AddAsync(new Poem { Title = poem.Title, Body = poem.Body,
+                PostToInspire = poem.PostToInspire, Poet = currentPoet });
             await _appDbContext.SaveChangesAsync();
 
             return new OkObjectResult("Poem updated");
@@ -62,24 +69,25 @@ namespace PoemInk.Controllers
         [HttpGet]
         public IEnumerable<Poem> Get()
         {
-            return _appDbContext.Poems.ToList();
+            return _appDbContext.Poems.Where(p => p.PostToInspire == true).ToList();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("byId")]
         public Poem Get(int id)
         {
             return _appDbContext.Poems.FirstOrDefault(p => p.Id == id);
         }
 
-        [HttpGet("{penName}")]
+        [HttpGet("byPenName")]
         public IEnumerable<Poem> Get(string penName)
         {
-            return _appDbContext.Poems.Where(p => p.Poet.PenName == penName).ToList();
+            return _appDbContext.Poems.Where(p => 
+                                                p.Poet.PenName == penName &&
+                                                p.PostToInspire == true).ToList();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Authorize(Policy = "ApiUser")]
-
         public async Task<IActionResult> Delete(int id)
         {
             Poem poem = _appDbContext.Poems.FirstOrDefault(p => p.Id == id);
@@ -91,6 +99,8 @@ namespace PoemInk.Controllers
             }
             return Ok(poem);
         }
+
+
 
         private async Task<Poet> CurrentPoet()
         {
